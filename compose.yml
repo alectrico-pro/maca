@@ -1,0 +1,26 @@
+#Orquestación del frontend designer con su backend, autorizador y macarron
+
+services:
+
+  #https://stackoverflow.com/questions/9023672/how-do-i-resolve-cannot-find-module-error-using-node-js
+  npm: 
+    build: ./designer
+    command:
+      - npm
+      - install 
+      - bootstrap@v5.2.2
+
+  run:
+    build: ./designer
+    volumes:
+      - ./designer/:/usr/app/designer/
+    ports:
+      - "3201:3201"
+      - "3202:3202"
+    command:
+      - npm
+      - run
+      - start
+
+
+
