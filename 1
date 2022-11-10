@@ -17,9 +17,6 @@ services:
     ports:
       - "3201:3201"
       - "3202:3202"
-    environment:
-      servicios_url: "localhost:3301/"
-
     command:
       - npm
       - run
@@ -28,13 +25,8 @@ services:
 
   macarron:
    build: ./macarron
-   environment:
-     RAILS_ENV: 'development'
-     MICRO_SERVICIOS_PERMITIDOS: 'designer'
-   volumes:
-     - ./macarron:/myapp
    ports:
-     - "3000:3000"
+     - "3301:3301"
    command:
-     - rails
-     - s 
+     - puma 
+ 
